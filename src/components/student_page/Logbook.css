@@ -1,0 +1,128 @@
+
+.Logbook{
+    width: 100%;
+    border-right: 1px solid #D5D5D5;
+    padding: 2rem;
+    padding-right: calc(100% - 550px);
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    vertical-align: left;
+    justify-content: left; 
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.heading > span{
+    font-weight: 700;
+    font-size: 20px;
+}
+.weekly-log{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+.lwk-log-head{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.lwk-log-head ion-icon{
+    cursor: pointer;
+}
+.report{
+    display: flex;
+    flex-direction: column;
+}
+.report .row-1{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.row-2  textarea{
+    width: 100%;
+    padding: 10px;
+    font-size: 12px;
+    background-color: #0066FF0A;
+    border: none;
+    border-radius: 10px;
+    resize: none;
+    letter-spacing: 0.5px;
+    line-height: 2;
+    display: block;
+    margin-bottom: 20px;
+    
+    outline: 1px solid #e1e1e1;
+}
+.row-2  textarea:disabled{
+    color: #000;
+}
+textarea.Sup_comm{
+    width: 100%;
+    padding: 10px;
+    font-size: 12px;
+    background-color: #0066FF0A;
+    border: none;
+    border-radius: 10px;
+    resize: none;
+    letter-spacing: 0.5px;
+    line-height: 2;
+    display: block;
+    margin-bottom: 20px;
+    outline: 1px solid silver;
+    margin-top: 0px;
+}
+.row-2  textarea:focus{
+    outline: 1px solid silver;
+    
+}
+.DptSup{
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 15px;
+    display: block;
+}
+/* from submit-report.jsx */
+.submit_{
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+    
+}
+.submit_ .submit-info{
+    display: flex;
+    flex-direction: column;
+
+}
+.btn{
+    background-color: #0066FF;
+    outline: none;
+    border: none;
+    color: white;
+    padding: 1rem 0;
+    cursor: pointer;
+}
+.submit-info{
+    margin-top: 10px;
+}
+.submit-info > textarea{
+    border: 1px solid #C7C9D9;
+}
+.button-wrap{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.fileInput{
+    margin-top: 15px;
+    display: block;
+}
+.week-1{
+    width: 500px;
+}

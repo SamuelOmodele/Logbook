@@ -1,0 +1,148 @@
+.Student, .registeredCompany{
+    width:100%;
+    padding: 0 2rem;
+    padding-right: 390px;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+}
+.title{
+   font-size: 20px;
+   /* background-color: red; */
+   font-weight: 700;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   width: 400px;
+}
+ion-icon{
+    font-size: 20px;
+}
+.title > ion-icon{
+    font-size: 25px;
+    font-weight: 700;
+    
+}
+.info-filters{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+.filter-box{
+    border: 1.5px solid #3686ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 3.5rem;
+    gap: 1rem;
+    
+    padding: 1.2rem .5rem;
+    padding: 10px;
+    border-radius: 10px;
+    font: 12px;
+}
+.add-btn{
+    position: fixed;
+    background-color: #3686ff;
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    bottom: 50px;
+    right: 390px;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+.add-btn:hover{
+    background-color: #fff;
+    color: #3686ff;
+    transition: .2s;
+}
+.add-btn ion-icon{
+    font-size: 30px;
+    transition: .2s;
+}
+.assign-text{
+    font-size: 11px;
+    text-align: center;
+    background-color: #3686ff;
+    padding: 7px 9px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .25s;
+}
+.assign-text:hover{
+    transform: scale(1.05);
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+}
+.circle{
+    background-color: #3686ff;
+    color: #fff;
+    height: 35px;
+    width: 52px;
+    cursor: pointer;
+    transition: .25s;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.add-sup{
+    /* background-color: red; */
+    padding-top: 20px;
+    position: relative;
+}
+.add-sup ion-icon{
+    position: absolute;
+    left: 0px;
+    top: 28px;
+    font-size: 22px;
+    border-radius: 50%;
+    color: black;
+    cursor: pointer;
+}
+.add-sup h2{
+    border-bottom: 1px solid #cac9d9;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.add-sup .form-row{
+    width: 100%;
+    margin-bottom: 10px;
+    /* background-color: green; */
+    
+}
+.add-sup .form-row label{
+    display: block;
+    font-size: 14.5px;
+    margin-bottom: 7px;
+
+}
+.add-sup .form-row input, .add-sup .form-row select{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #cac9d9;
+    outline: none;
+}
+.add-sup .form-row button{
+    background-color: #3686ff;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    font-size: 15px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+.add-sup .form-row button:hover{
+    background-color: #2661bb;
+}

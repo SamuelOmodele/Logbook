@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.sidebar{
+    padding: 40px 0;
+    max-width: 100%;
+    height: 100vh;
+    display: block;
+    border-right: 1px solid #D5D5D5;
+    list-style: none;
+    margin-left: 11%;
+}
+/* @media screen and (max-width : 900px) {
+    .sidebar{
+        display: none;
+    }
+} */
+nav > div {
+    display: flex;
+    flex-flow: column;
+    gap: 1.5rem;
+    justify-content: left;
+}
+.imgLogo{
+    margin-bottom: 30px;
+}
+.sidebar-link{
+    font-size: 18px;
+    padding: 1rem 3rem;
+    cursor: pointer;
+    color: #000;
+    text-decoration: none;
+    transition: 0.4s ease;
+    position: relative;
+}
+.sidebar-link:hover, .sidebar-link#active{
+    background-color: #0066FF80;
+}
+.profile_ {
+    display: flex;
+    flex-flow: row;
+    gap: 5px;
+    font-size: 10px;
+    color: #000;
+    width: 100%;
+    margin-right: 1rem;
+    
+}
+.profile-img{
+    width: 4rem;
+    height: 4rem;
+}
+.profile-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid #eee;
+}
+.profile-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+}
+.profile-details > span{
+    font-size: 9px;
+}
+.btm-span{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+.sidebar-link ion-icon, .sidebar-link span{
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22.5px;
+}
+
+.link{
+    color: #000;
+}
+/* @media screen and (max-width: 1200px){
+    .sidebar{
+        display: none;
+    }
+} */

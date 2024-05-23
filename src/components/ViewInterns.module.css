@@ -1,0 +1,47 @@
+.regComp{
+    padding: 2rem;
+    margin-right: 27rem;
+    position: relative;
+    width: 100%;
+
+}
+.heading{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.mapCompDetails{
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    /* background-color: red; */
+    gap: 15px;
+}
+.details{
+    width: 400px;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    background-color: #f5f9ff;
+    padding: .7rem ;
+    border-radius: 10px ;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.nameDiv{
+    width: 100%;
+    
+}
+.detImage img{
+    border-radius: 50%;
+}
+
+.nameOfCompany{
+    font-weight: 500;
+}
+.departmentalSupervisor{
+    display: none;
+}
