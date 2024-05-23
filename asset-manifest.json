@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Logbook/static/css/main.30f1822b.css",
+    "main.js": "/Logbook/static/js/main.1d2093c7.js",
+    "static/js/787.28cb0dcd.chunk.js": "/Logbook/static/js/787.28cb0dcd.chunk.js",
+    "static/media/sign-in..png": "/Logbook/static/media/sign-in..6c920df0db0c4550a572.png",
+    "static/media/register-1.png": "/Logbook/static/media/register-1.45171d921fda928bbe40.png",
+    "static/media/University-of-Ibadan.jpg": "/Logbook/static/media/University-of-Ibadan.5cd8467b775562bbd355.jpg",
+    "static/media/pdf.png": "/Logbook/static/media/pdf.219f6ebf0b16971c05fa.png",
+    "static/media/default3.webp": "/Logbook/static/media/default3.efadb13dba95b5bc918b.webp",
+    "index.html": "/Logbook/index.html",
+    "main.30f1822b.css.map": "/Logbook/static/css/main.30f1822b.css.map",
+    "main.1d2093c7.js.map": "/Logbook/static/js/main.1d2093c7.js.map",
+    "787.28cb0dcd.chunk.js.map": "/Logbook/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.30f1822b.css",
+    "static/js/main.1d2093c7.js"
+  ]
+}
