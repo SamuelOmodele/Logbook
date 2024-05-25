@@ -201,6 +201,7 @@ const OrgStudent = () => {
                           </div>
                       ))
                   }
+                  {uniqueStudent.length === 0 && <p>No Student</p>}
               </div>
 
 

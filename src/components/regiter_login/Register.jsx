@@ -23,19 +23,16 @@ const Register = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    auth.signOut(); // Sign out the current user when the component mounts
+    auth.signOut(); 
   }, []);
 
   // Function to fetch all documents from a collection
   const getAllDocuments = async (collectionName) => {
     try {
-      // Reference to the collection
       const collectionRef = collection(db, collectionName);
 
-      // Retrieve all documents from the collection
       const querySnapshot = await getDocs(collectionRef);
 
-      // Extract data from each document
       const documents = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         data: doc.data()
@@ -60,10 +57,9 @@ const Register = () => {
         console.error('Error:', error);
       });
   }, [])
+  
 
   const registerStudent = async (e) => {
-
-
     e.preventDefault();
     // -- validation
     if (name === '' || matricNo === '' || email === '' || password === '' || organization === '' || department === '') {

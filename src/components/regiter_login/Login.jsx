@@ -30,6 +30,7 @@ const Sign_in = () => {
     } else if (password === ''){
       setErrorMsg('Enter Password');
     } else {
+
       try{
         await signInWithEmailAndPassword(auth, email, password);
 
@@ -37,10 +38,10 @@ const Sign_in = () => {
           const q = query(collection(db, 'EntityType'), where('email', '==', email));
           const querySnapshot = await getDocs(q);
           if (!querySnapshot.empty) {
-
             querySnapshot.forEach((doc) => {
               const category = doc.data().category;
               console.log(category);
+
               if (category === 'student') {
                 localStorage.setItem('email', email);
                 navigate('/')
@@ -71,15 +72,20 @@ const Sign_in = () => {
         }
        
       } catch (err) {
-        console.error(err)
-        setErrorMsg('Invalid Email or Password');
+        if (err.code === 'auth/network-request-failed') {
+          console.error("Network connection is poor. Please try again later.");
+          setErrorMsg('Network connection is poor. Please try again later.');
+        } else {
+          console.error(err);
+          setErrorMsg('Invalid Email or Password');
+        }
       }
     }
   }
   return (   
     <div className='sign-in'>
       <div className="sign-up-form center">
-        <span className="welcome">Welcome Back!</span>
+        <span className="welcome">Welcome Back!!</span>
         <form action="" className="su-form">
           {errorMsg && <p className='error'>{errorMsg}</p>}
           <div className="input-1 input">

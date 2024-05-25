@@ -23,38 +23,29 @@ const AdminHome = () => {
 // Function to fetch all documents from a collection
 const getAllDocuments = async (collectionName) => {
   try {
-    // Reference to the collection
     const collectionRef = collection(db, collectionName);
 
-    // Retrieve all documents from the collection
     const querySnapshot = await getDocs(collectionRef);
 
-    // Extract data from each document
     const documents = querySnapshot.docs.map((doc) => ({
       id: doc.id,
       data: doc.data()
     }));
 
-    // Return the array of documents
     return documents;
   } catch (error) {
     console.error('Error fetching documents:', error);
-    throw error; // Rethrow the error to handle it in the calling code
+    throw error;
   }
 };
 
-
-
-
   useEffect(() => {
-    
     getAllDocuments('OrganizationRecord')
       .then((documents) => {
         setCompanyList(documents);
         setCompanySet(true)
       })
       .catch((error) => {
-        // Handle any errors that occur during the fetching process
         console.error('Error:', error);
       });
 
@@ -64,7 +55,6 @@ const getAllDocuments = async (collectionName) => {
         setOrgSupSet(true)
       })
       .catch((error) => {
-        // Handle any errors that occur during the fetching process
         console.error('Error:', error);
       });
     getAllDocuments('StudentRecord')
@@ -73,7 +63,6 @@ const getAllDocuments = async (collectionName) => {
         setStudentSet(true)
       })
       .catch((error) => {
-        // Handle any errors that occur during the fetching process
         console.error('Error:', error);
       });
     getAllDocuments('DeptSupervisor')
@@ -82,7 +71,6 @@ const getAllDocuments = async (collectionName) => {
         setDeptSupSet(true)
       })
       .catch((error) => {
-        // Handle any errors that occur during the fetching process
         console.error('Error:', error);
       });
   }, [])

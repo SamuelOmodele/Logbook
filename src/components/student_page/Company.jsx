@@ -14,32 +14,24 @@ const Company = () => {
   const orgEmail = localStorage.getItem('orgEmail');
 
   const fetchUser = async () => {
-    onAuthStateChanged(auth, async (userAuth) => {
-      console.log(userAuth)
-      if (userAuth) {
-        try {
-          
-          console.log(orgEmail)
-          const q = query(collection(db, 'OrganizationRecord'), where('email', '==', orgEmail));
-          const querySnapshot = await getDocs(q);
+    try {
+      
+      console.log(orgEmail)
+      const q = query(collection(db, 'OrganizationRecord'), where('email', '==', orgEmail));
+      const querySnapshot = await getDocs(q);
 
-          if (!querySnapshot.empty) {
-            querySnapshot.forEach((doc) => {
-              fetchDocument(doc.id);
-            });
-          } else {
-            console.log("User data not found");
-            setExist(false)
-          }
-        } catch (error) {
-          console.error("Error fetching user data:", error);
-          // Handle error appropriately (e.g., show error message to user)
-        }
+      if (!querySnapshot.empty) {
+        querySnapshot.forEach((doc) => {
+          fetchDocument(doc.id);
+        });
       } else {
-        console.log('User not logged in');
-        // Handle case where user is not logged in (if needed)
+        console.log("User data not found");
+        setExist(false)
       }
-    });
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+      // Handle error appropriately (e.g., show error message to user)
+    }
   }
 
   const fetchDocument = async (id) => {

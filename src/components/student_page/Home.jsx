@@ -20,28 +20,21 @@ const Home = () => {
 
     useEffect(() => {
         const fetchUser = async () => {
-            onAuthStateChanged(auth, async (userAuth) => {
-                if (userAuth) {
-                    try {
-                        const q = query(collection(db, 'StudentRecord'), where('email', '==', userAuth.email));
-                        const querySnapshot = await getDocs(q);
-                        if (!querySnapshot.empty) {
-                            querySnapshot.forEach((doc) => {
-                                fetchDocument(doc.id);
-                            });
-                        } else {
-                            console.log("User data not found");
-                            navigate('/auth/sign-in');
-                        }
-                    } catch (error) {
-                        console.error("Error fetching user data:", error);
-                        // Handle error appropriately (e.g., show error message to user)
-                    }
+            try {
+                const q = query(collection(db, 'StudentRecord'), where('email', '==', localStorage.getItem("email")));
+                const querySnapshot = await getDocs(q);
+                if (!querySnapshot.empty) {
+                    querySnapshot.forEach((doc) => {
+                        fetchDocument(doc.id);
+                    });
                 } else {
-                    console.log('User not logged in');
-                    // Handle case where user is not logged in (if needed)
+                    console.log("User data not found");
+                    navigate('/auth/sign-in');
                 }
-            });
+            } catch (error) {
+                console.error("Error fetching user data:", error);
+                // Handle error appropriately (e.g., show error message to user)
+            }
         }
 
         const fetchDocument = async (id) => {

@@ -2,8 +2,6 @@ import React, {useState, useEffect, useRef} from 'react'
 import './supHome.css'
 import '../student_page/company.css'
 import supervisorImg from '../../assets/default3.webp'
-import { auth } from '../config/firebase'
-import { onAuthStateChanged } from 'firebase/auth'
 import { collection, query, where, getDocs, getDoc, doc, updateDoc } from 'firebase/firestore';
 import { db } from '../config/firebase'
 import { v4 } from 'uuid'
@@ -28,7 +26,6 @@ const SupervisorHome = () => {
       }
     } catch (error) {
       console.error("Error fetching user data:", error);
-      // Handle error appropriately (e.g., show error message to user)
     }
   }
 

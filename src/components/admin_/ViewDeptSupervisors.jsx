@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import profile from '../../assets/University-of-Ibadan.jpg'
+import profile from '../../assets/default3.webp'
 import styles from '../ViewInterns.module.css'
 import './Student.css'
 import { auth } from '../config/firebase'
