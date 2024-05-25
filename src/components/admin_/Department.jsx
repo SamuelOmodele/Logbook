@@ -16,43 +16,38 @@ const Department = () => {
 
 
   // Function to fetch all documents from a collection
-const getAllDocuments = async (collectionName) => {
-  try {
-    // Reference to the collection
-    const collectionRef = collection(db, collectionName);
+  const getAllDocuments = async (collectionName) => {
+    try {
+      const collectionRef = collection(db, collectionName);
+      const querySnapshot = await getDocs(collectionRef);
 
-    // Retrieve all documents from the collection
-    const querySnapshot = await getDocs(collectionRef);
+      const documents = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        data: doc.data()
+      }));
 
-    // Extract data from each document
-    const documents = querySnapshot.docs.map((doc) => ({
-      id: doc.id,
-      data: doc.data()
-    }));
+      return documents;
+    } catch (error) {
+      setLoading(false);
+      console.error('Error fetching documents:', error);
+      throw error;
+    }
+  };
 
-    // Return the array of documents
-    return documents;
-  } catch (error) {
-    setLoading(false);
-    console.error('Error fetching documents:', error);
-    throw error; // Rethrow the error to handle it in the calling code
-  }
-};
-
+  // --- get all the departments from the database
   useEffect(() => {
-    // Usage example
     getAllDocuments('Department')
       .then((documents) => {
         setDepartments(documents);
         setLoading(false);
       })
       .catch((error) => {
-        // Handle any errors that occur during the fetching process
         console.error('Error:', error);
         setLoading(false);
       });
   }, [])
 
+  // --- add department
   const addDepartment = async(e) => {
     e.preventDefault();
 
@@ -60,7 +55,6 @@ const getAllDocuments = async (collectionName) => {
         setError('Enter department name');
     } else {
         try {
-
             await addDoc(collection(db, 'Department'), {
             name: departmentName
             });
@@ -76,8 +70,6 @@ const getAllDocuments = async (collectionName) => {
     
   return (
     <div className='Student'>
-      
-
       {loading === false ? 
       <>
       {!add && <div className={styles.mapCompDetails} style={{width:'100%'}}>

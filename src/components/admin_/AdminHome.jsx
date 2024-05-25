@@ -24,7 +24,6 @@ const AdminHome = () => {
 const getAllDocuments = async (collectionName) => {
   try {
     const collectionRef = collection(db, collectionName);
-
     const querySnapshot = await getDocs(collectionRef);
 
     const documents = querySnapshot.docs.map((doc) => ({
@@ -39,6 +38,7 @@ const getAllDocuments = async (collectionName) => {
   }
 };
 
+  // -- get all the entities from the database ---
   useEffect(() => {
     getAllDocuments('OrganizationRecord')
       .then((documents) => {
@@ -74,9 +74,6 @@ const getAllDocuments = async (collectionName) => {
         console.error('Error:', error);
       });
   }, [])
-
-
-
 
   
   return (

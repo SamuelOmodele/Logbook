@@ -27,31 +27,25 @@ const ViewDeptSupervisors = () => {
     // Function to fetch all documents from a collection
     const getAllDocuments = async (collectionName) => {
         try {
-            // Reference to the collection
             const collectionRef = collection(db, collectionName);
 
-            // Retrieve all documents from the collection
             const querySnapshot = await getDocs(collectionRef);
 
-            // Extract data from each document
             const documents = querySnapshot.docs.map((doc) => ({
                 id: doc.id,
                 data: doc.data()
             }));
 
-            // Return the array of documents
             return documents;
         } catch (error) {
             setLoading(false);
             console.error('Error fetching documents:', error);
-            throw error; // Rethrow the error to handle it in the calling code
+            throw error; 
         }
     };
 
     useEffect(() => {
         setUserEmail(localStorage.getItem('email'))
-
-        // Usage example
         getAllDocuments('DeptSupervisor')
             .then((documents) => {
                 setDeptSupervisor(documents);
