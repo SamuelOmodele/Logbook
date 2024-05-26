@@ -12,6 +12,7 @@ import { Imagedb } from '../config/firebase'
 const OrgHome = () => {
 
   const [user, setUser] = useState(null);
+  const [userImg, setUserImg] = useState(null);
   const profileImgRef = useRef(null);
 
   const UpdateImage = async (imageUrl) => {
@@ -38,7 +39,7 @@ const uploadImage = async(id, imageUrl) => {
     try{
         const docRef = doc(db, 'OrganizationRecord', id);
         await updateDoc(docRef, newData);
-        window.location.reload();
+        setUserImg(imageUrl)
     }catch(err) {
         console.error(err);
     }
@@ -114,8 +115,10 @@ const handleImageChange = async(e) => {
       { user && <div className='orgHome company'>
         {console.log(user)}
         <div className='card'>
-          {!user.image && <img src={company} alt="" />}
-          {user.image && <img src={user.image} alt="" />}
+          {(!user.image && !userImg) && <img src={company} alt="" />}
+          {(!user.image && userImg) && <img src={userImg} alt="" />}
+          {(user.image && !userImg) && <img src={user.image} alt="" />}
+          {(user.image && userImg) && <img src={userImg} alt="" />}
           <p className='company-title'>{user.orgName}</p>
           <p>{user.address}</p>
 

@@ -15,6 +15,7 @@ import { useNavigate } from 'react-router-dom'
 const Home = () => {
 
     const [user, setUser] = useState(null);
+    const [userImg, setUserImg] = useState(null);
     const profileImgRef = useRef(null)
     const navigate = useNavigate();
 
@@ -87,7 +88,7 @@ const Home = () => {
         try{
             const docRef = doc(db, 'StudentRecord', id);
             await updateDoc(docRef, newData);
-            window.location.reload();
+            setUserImg(imageUrl)
         }catch(err) {
             console.error(err);
         }
@@ -124,8 +125,10 @@ const Home = () => {
 
             <div className="home-container">
                 <div className="hm-image">
-                    {!user.image && <img src={studentImg} alt=""/>}
-                    {user.image && <img src={user.image} alt=""/>}
+                    {(!user.image && !userImg) && <img src={studentImg} alt=""/>}
+                    {(!user.image && userImg) && <img src={userImg} alt=""/>}
+                    {(user.image && !userImg) && <img src={user.image} alt=""/>}
+                    {(user.image && userImg) && <img src={userImg} alt=""/>}
                 </div>
                 <div className="stu-details">
                     <span className="name"><b>{user?.name}</b></span>

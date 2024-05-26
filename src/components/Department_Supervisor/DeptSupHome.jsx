@@ -13,6 +13,7 @@ import { Imagedb } from '../config/firebase'
 const DeptSupHome = () => {
 
     const [user, setUser] = useState(null);
+    const [userImg, setUserImg] = useState(null);
     const profileImgRef = useRef(null);
 
     const fetchUser_ = async (imageUrl) => {
@@ -46,7 +47,7 @@ const DeptSupHome = () => {
         try {
             const docRef = doc(db, 'DeptSupervisor', id);
             await updateDoc(docRef, newData);
-            window.location.reload();
+            setUserImg(imageUrl);
         } catch (err) {
             console.error(err);
         }
@@ -121,14 +122,17 @@ const DeptSupHome = () => {
     useEffect(() => {
 
         fetchUser(); // Call fetchUser directly
+
     }, []);
 
     return (
         <>
             {user && <div className='supHome company' style={{ width: '100%' }}>
                 <div className='card'>
-                    {!user.image && <img src={supervisorImg} alt="" />}
-                    {user.image && <img src={user.image} alt="" />}
+                    {(!user.image && !userImg) && <img src={supervisorImg} alt="" />}
+                    {(!user.image && userImg) && <img src={userImg} alt="" />}
+                    {(user.image && !userImg) && <img src={user.image} alt="" />}
+                    {(user.image && userImg) && <img src={userImg} alt="" />}
                     <p className='company-title'>{user.name}</p>
                     <p style={{fontSize: '14px', marginTop: '5px'}}>{`${user.department} Department Supervisor`} </p>
 

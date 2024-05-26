@@ -25,7 +25,7 @@ const SupervisorLayout = () => {
                 await updatePassword(user, password);
                 localStorage.setItem('password', password);
                 alert('Password updated successfully');
-                window.location.reload();
+                storedPassword(password);
             } else {
                 alert('no user signed in')
             }

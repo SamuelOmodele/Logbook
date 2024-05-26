@@ -59,7 +59,6 @@ const Department = () => {
             name: departmentName
             });
             alert('Department Added')
-            window.location.reload()
     
         } catch (err) {
             console.error(err)

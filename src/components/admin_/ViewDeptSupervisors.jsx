@@ -96,7 +96,6 @@ const ViewDeptSupervisors = () => {
                 alert('Department Supervisor Added.');
                 await createUserWithEmailAndPassword(auth, supEmail, 'password');
                 await signInWithEmailAndPassword(auth, storedEmail, storedPassword);
-                window.location.reload();
             } catch (err) {
                 console.error(err)
             }
