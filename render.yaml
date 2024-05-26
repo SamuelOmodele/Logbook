@@ -1,8 +1,0 @@
-services:
-  - type: web
-    name: Logbook
-    env: static
-    staticPublishPath: build
-    routes:
-      - src: /.*
-        dest: /index.html

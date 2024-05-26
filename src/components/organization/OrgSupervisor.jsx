@@ -119,6 +119,8 @@ const OrgSupervisor = () => {
                 await createUserWithEmailAndPassword(auth, email, 'password');
                 await signInWithEmailAndPassword(auth, storedEmail, storedPassword);
                 alert('Supervisor Added.')
+                // navigate('/org/supervisors')
+                window.location.reload();
         
             } catch (err) {
                 console.error(err)

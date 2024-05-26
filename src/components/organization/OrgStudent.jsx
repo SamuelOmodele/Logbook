@@ -147,6 +147,7 @@ const OrgStudent = () => {
             await updateDoc(docRef, newData);
             console.log('Supervisor Assigned Successfully')
             alert('Supervisor Assigned Successfully')
+            window.location.reload();
         }catch(err) {
             console.error(err);
         }

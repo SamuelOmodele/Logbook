@@ -25,7 +25,7 @@ const DeptSupLayout = () => {
         await updatePassword(user, password);
         localStorage.setItem('password', password);
         alert('Password updated successfully');
-        storedPassword(password);
+        window.location.reload();
       } else {
         alert('no user signed in')
       }
