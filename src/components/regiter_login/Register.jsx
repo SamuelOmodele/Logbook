@@ -22,6 +22,8 @@ const Register = () => {
   const [errorMsg, setErrorMsg] = useState(null)
   const navigate = useNavigate();
 
+  const [show, setShow] = useState(false);
+
   useEffect(() => {
     auth.signOut(); 
   }, []);
@@ -122,9 +124,8 @@ const Register = () => {
           </div>
           <div className="input-3 input">
             <label htmlFor="password">Password</label>
-            <input type="alphanumeric" value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder='Enter your password' />
+            {!show && <div style={{position: 'relative'}}><input type="password" value={password} placeholder='Enter your password . . .' onChange={(e) => setPassword(e.target.value)}/><span class="material-symbols-outlined eye-icon" onClick={() => setShow(prev => !prev)}>visibility</span></div>}
+            {show && <div style={{position: 'relative'}}><input type="text" value={password} placeholder='Enter your password . . .' onChange={(e) => setPassword(e.target.value)}/><span class="material-symbols-outlined eye-icon" onClick={() => setShow(prev => !prev)}>visibility_off</span></div>}
           </div>
           <div className="input-3 input">
             <label htmlFor="phone">Phone Number</label>

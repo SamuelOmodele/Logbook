@@ -13,6 +13,9 @@ import { collection, addDoc } from 'firebase/firestore';
 
 const RegisterOrganzation = () => {
 
+    
+  const [show, setShow] = useState(false);
+
     useEffect(() => {
         auth.signOut(); // Sign out the current user when the component mounts
     }, []);
@@ -84,9 +87,9 @@ const RegisterOrganzation = () => {
                     </div>
                     <div className="input-3 input">
                         <label htmlFor="password">Password</label>
-                        <input type="alphanumeric" value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            placeholder='Password' />
+                        {!show && <div style={{position: 'relative'}}><input type="password" value={password} placeholder='Enter your password . . .' onChange={(e) => setPassword(e.target.value)}/><span class="material-symbols-outlined eye-icon" onClick={() => setShow(prev => !prev)}>visibility</span></div>}
+                        {show && <div style={{position: 'relative'}}><input type="text" value={password} placeholder='Enter your password . . .' onChange={(e) => setPassword(e.target.value)}/><span class="material-symbols-outlined eye-icon" onClick={() => setShow(prev => !prev)}>visibility_off</span></div>}
+          
                     </div>
                     <div className="input-1 input">
                         <label htmlFor="">Contact address</label>

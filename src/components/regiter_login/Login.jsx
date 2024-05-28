@@ -13,6 +13,8 @@ const Sign_in = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState(null)
+
+  const [show, setShow] = useState(false);
   
   const navigate = useNavigate();
 
@@ -94,7 +96,8 @@ const Sign_in = () => {
           </div>
           <div className="input-3 input">
             <label htmlFor="password">Password</label>
-            <input type="password" placeholder='Enter your password . . .' onChange={(e) => setPassword(e.target.value)}/>
+            {!show && <div style={{position: 'relative'}}><input type="password" value={password} placeholder='Enter your password . . .' onChange={(e) => setPassword(e.target.value)}/><span class="material-symbols-outlined eye-icon" onClick={() => setShow(prev => !prev)}>visibility</span></div>}
+            {show && <div style={{position: 'relative'}}><input type="text" value={password} placeholder='Enter your password . . .' onChange={(e) => setPassword(e.target.value)}/><span class="material-symbols-outlined eye-icon" onClick={() => setShow(prev => !prev)}>visibility_off</span></div>}
             <a className='forgot-password' href="#">Forgot password?</a>
           </div>
         </form>

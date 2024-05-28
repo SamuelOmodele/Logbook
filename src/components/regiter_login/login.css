@@ -128,3 +128,13 @@ form label {
         font-size: 28px;
     }
 }
+
+.eye-icon{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    user-select: none;
+    font-size: 20px;
+}
